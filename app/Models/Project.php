@@ -9,9 +9,16 @@ class Project extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['code', 'project', 'semester', 'mata_kuliah', 'description'];
+    protected $fillable = [
+        'code',
+        'project',
+        'semester',
+        'mata_kuliah',
+        'description',
+    ];
 
-    public function course(){
+    public function course()
+    {
         return $this->belongsTo(Course::class, 'mata_kuliah', 'course_code');
     }
 }
