@@ -42,12 +42,14 @@ class CourseController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  String  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
+        $code = Str::upper($id);
+        $course = Course::all()->where('course_code', $code);
+        return ['courses' => CourseResource::collection($course)];
     }
 
     /**
